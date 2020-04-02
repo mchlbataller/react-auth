@@ -1,0 +1,27 @@
+// Global variables
+$text-color: #2D2D2D;
+$font-style: Segoe UI, sans-serif;
+@mixin text-weight($arg) {
+    font:{
+        @if $arg == "light" {weight: 300}
+        @if $arg == "regular" {weight: 400}
+        @if $arg == "bold" {weight: 700}
+    }
+}
+
+body {
+    color: $text-color;
+    font-style: $font-style;
+}
+
+div.content {
+    margin: 55px;
+}
+
+h1 {
+    @include text-weight(light);
+}
+
+.text-center {
+    text-align: center;
+}

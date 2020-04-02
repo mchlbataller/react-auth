@@ -1,0 +1,13 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Attach to url with files served",
+            "type": "edge",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "preLaunchTask": "npm: start",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

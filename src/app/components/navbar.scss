@@ -1,0 +1,65 @@
+// Global variables
+$nav-radius: 0px 0px 15px 15px;
+$nav-menu-height: 27px;
+$nav-menu-width: 15px;
+
+div.navbar {
+  background-color: #2595d5;
+  height: 22px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+div.navbar-brand,
+div.navbar-menu {
+  p {
+    color: #ffffff;
+    font-size: 12pt;
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    // For the navbar-menu height, padding-top and padding bottom is used.
+    padding-top: $nav-menu-height;
+    padding-bottom: $nav-menu-height;
+    padding: {
+        top: $nav-menu-height;
+        bottom: $nav-menu-height;
+        left: $nav-menu-width;
+        right: $nav-menu-width;
+    }
+    
+    li {
+      display: inline;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: {left: 20px; right: 20px;} 
+      }
+    }
+  }
+  background-color: #135298;
+  border-radius: $nav-radius;
+}
+
+div.navbar-brand {
+  position: absolute;
+  left: 180px;
+  width: 170px;
+}
+
+div.navbar-menu {
+  position: absolute;
+  left: 950px;
+}
