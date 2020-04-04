@@ -1,6 +1,8 @@
 // Global variables
 $text-color: #2D2D2D;
 $font-style: Segoe UI, sans-serif;
+
+// Mixin for text-weights. Accepts light, regular, and bold args.
 @mixin text-weight($arg) {
     font:{
         @if $arg == "light" {weight: 300}
@@ -15,7 +17,7 @@ body {
 }
 
 div.content {
-    margin: 55px;
+    margin: 175px;
 }
 
 h1 {

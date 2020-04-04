@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./app/pages/home/home";
 import Navbar from "./app/components/navbar";
+import Login from "./app/pages/login/login";
 
 function AppRouter() {
   return (
@@ -13,9 +14,13 @@ function AppRouter() {
       <Navbar />
       <div className="content">
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
+
         </Switch>
       </div>
     </React.Fragment>
