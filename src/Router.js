@@ -7,6 +7,7 @@ import {
 import Home from "./app/pages/home/home";
 import Navbar from "./app/components/navbar";
 import Login from "./app/pages/login/login";
+import Success from "./app/pages/login/success/success";
 
 function AppRouter() {
   return (
@@ -14,6 +15,9 @@ function AppRouter() {
       <Navbar />
       <div className="content">
         <Switch>
+          <Route path="/login/success">
+            <Success />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>
