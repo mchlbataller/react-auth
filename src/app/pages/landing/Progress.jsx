@@ -1,8 +1,9 @@
 import React from 'react';
+import {Header} from 'app/components/Text';
 
 const Progress = () => (
-    <div>
-        <p> nice</p>
+    <div className="border rounded p-12 pt-10 mt-12">
+        
     </div>
 )
 
