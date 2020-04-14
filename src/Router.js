@@ -15,7 +15,7 @@ function AppRouter() {
 		<React.Fragment>
 			<Navbar />
 
-			<div className="container-main">
+			<div className="container-main mx-48">
 				<Switch>
 					<Route path="/login/success">
 						<Success />

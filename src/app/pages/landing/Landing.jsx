@@ -5,7 +5,7 @@ import React from "react";
 function Landing() {
     return (
         <div>
-            <h1 className="text-center">This site shows my progress in learning React.</h1> 
+            <h1 className="text-center text-3xl font-light">This site shows my progress in learning React.</h1> 
             <Progress />
         </div>
     ) 
