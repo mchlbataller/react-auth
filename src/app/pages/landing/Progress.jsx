@@ -1,10 +1,13 @@
 import React from 'react';
-import {Header} from 'app/components/Text';
+import { Header, Versioning, VersionList } from 'app/components/versioning';
 
 const Progress = () => (
-    <div className="border rounded p-12 pt-10 mt-12">
-        
-    </div>
+    <Versioning>
+        <VersionList>
+            <Header>v1.0.0</Header>
+            <li> Test</li>
+        </VersionList>
+    </Versioning>
 )
 
 export default Progress
