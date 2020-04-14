@@ -1,14 +1,9 @@
-import "./home.scss";
-import Progress from "./Progress";
-import React from "react";
+import React from 'react';
 
-function Home() {
-    return (
-        <div>
-            <h1 className="text-center">This site shows my progress in learning React.</h1> 
-            <Progress />
-        </div>
-    ) 
-}
+const Success = () => (
+    <div>
+        <h1 className="text-center">I will practice Redux in this page.</h1>
+    </div>
+)
 
 export default Home;
