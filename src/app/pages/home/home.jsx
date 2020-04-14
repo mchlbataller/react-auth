@@ -1,9 +1,13 @@
 import "./home.scss";
+import Progress from "./Progress";
 import React from "react";
 
 function Home() {
     return (
-        <h1 className="text-center">This is an Authentication System made with React</h1> 
+        <div>
+            <h1 className="text-center">This site shows my progress in learning React.</h1> 
+            <Progress />
+        </div>
     ) 
 }
 

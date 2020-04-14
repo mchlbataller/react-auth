@@ -1,34 +1,37 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route, Link
+	BrowserRouter as Router,
+	Switch,
+	Route, Link
 } from "react-router-dom";
-import Home from "./app/pages/home/home";
-import Navbar from "./app/components/navbar";
-import Login from "./app/pages/login/login";
-import Success from "./app/pages/success/success";
+import Home from "./app/pages/home/Home";
+import Navbar from "./app/components/Navbar";
+import Login from "./app/pages/login/Login";
+import Success from "./app/pages/success/Success";
 
 function AppRouter() {
-  return (
-    <React.Fragment>
-      <Navbar />
-      <div className="content">
-        <Switch>
-          <Route path="/login/success">
-            <Success />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+	return (
+		<React.Fragment>
+			<Navbar />
 
-        </Switch>
-      </div>
-    </React.Fragment>
-  );
+			<div className="content">
+				<Switch>
+					<Route path="/login/success">
+						<Success />
+					</Route>
+
+					<Route path="/login">
+						<Login />
+					</Route>
+
+					<Route path="/">
+						<Home />
+					</Route>
+				</Switch>
+			</div>
+
+		</React.Fragment>
+	);
 }
 
 

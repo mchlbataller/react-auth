@@ -1,29 +1,22 @@
+// About this stylesheet:
+// This stylesheet uses the DRY principle.
+//
+// 
+
 // Global variables
-$text-color: #2D2D2D;
-$font-style: Segoe UI, sans-serif;
+$global-text-color: #2D2D2D;
+$global-font: Segoe UI, sans-serif;
+// Text weights
+@mixin text-light() { font-weight: 100 }
+@mixin text-regular() { font-weight: 400 }
+@mixin text-bold() { font-weight: 700 }
+// Text alignments
+@mixin text-center() { text-align: center; }
 
-// Mixin for text-weights. Accepts light, regular, and bold args.
-@mixin text-weight($arg) {
-    font:{
-        @if $arg == "light" {weight: 300}
-        @if $arg == "regular" {weight: 400}
-        @if $arg == "bold" {weight: 700}
-    }
-}
+body { color: $global-text-color; font-style: $global-font; }
 
-body {
-    color: $text-color;
-    font-style: $font-style;
-}
+div.container { margin: 0px; }
 
-div.content {
-    margin: 175px;
-}
+h1 { @include text-light; }
 
-h1 {
-    @include text-weight(light);
-}
-
-.text-center {
-    text-align: center;
-}
+.text-center {@include text-center}
