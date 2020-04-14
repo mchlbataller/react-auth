@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { H1 } from  'app/components/text';
 
 function ProceedToHome() {
   return <Redirect to="/success" />;
@@ -45,18 +46,25 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="flex flex-col bg-gray-200 p-10 w-1/3 mx-auto">
+        <H1>Login</H1>
+
+        <p className="text-lg font-bold mx-auto mt-4 mb-2">Username</p>
         <input
           type="text"
           onChange={this.handleChange}
           value={this.state.username}
+          className="flex-1 border rounded mb-5 ml-5 mr-5 p-2"
         />
+
+        <p className="text-lg font-bold mx-auto mt-1 mb-2">Password</p>
         <input
           type="password"
           onChange={this.handleChange}
           value={this.state.password}
+          className="flex-1 border rounded mb-5 ml-5 mr-5 p-2"
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleSubmit} className="border-blue-700 h-12 border bg-blue-700 hover:shadow-outline w-40 rounded-full mx-auto text-gray-100">Submit</button>
         {this.state.login === true && <Redirect to="/success" />}
       </div>
     );
