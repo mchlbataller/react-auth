@@ -7,14 +7,15 @@ import {
 import Success from "./app/pages/home/Home";
 import Navbar from "./app/components/Navbar";
 import Login from "./app/pages/login/Login";
-import Home from "./app/pages/landing/Landing";
+import Landing from "./app/pages/landing/Landing";
 
 function AppRouter() {
+
 	return (
 		<React.Fragment>
 			<Navbar />
 
-			<div className="content">
+			<div className="container-main">
 				<Switch>
 					<Route path="/login/success">
 						<Success />
@@ -25,7 +26,7 @@ function AppRouter() {
 					</Route>
 
 					<Route path="/">
-						<Home />
+						<Landing />
 					</Route>
 				</Switch>
 			</div>

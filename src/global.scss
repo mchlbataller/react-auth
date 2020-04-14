@@ -6,17 +6,5 @@
 // Global variables
 $global-text-color: #2D2D2D;
 $global-font: Segoe UI, sans-serif;
-// Text weights
-@mixin text-light() { font-weight: 100 }
-@mixin text-regular() { font-weight: 400 }
-@mixin text-bold() { font-weight: 700 }
-// Text alignments
-@mixin text-center() { text-align: center; }
 
-body { color: $global-text-color; font-style: $global-font; }
-
-div.container { margin: 0px; }
-
-h1 { @include text-light; }
-
-.text-center {@include text-center}
+div.container-main { margin-top: 150px; }
