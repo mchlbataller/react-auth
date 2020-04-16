@@ -4,10 +4,10 @@ import {
 	Switch,
 	Route, Link
 } from "react-router-dom";
-import Success from "./app/pages/home/Home";
-import Navbar from "./app/components/Navbar";
-import Login from "./app/pages/login/Login";
-import Landing from "./app/pages/landing/Landing";
+import Success from "app/pages/home/home";
+import Navbar from "app/components/Navbar";
+import Login from "app/pages/login/Login";
+import Landing from "app/pages/landing/Landing";
 
 function AppRouter() {
 

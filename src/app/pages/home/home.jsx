@@ -1,8 +1,9 @@
 import React from 'react';
+import {H1} from 'app/components/text';
 
 const Home = () => (
     <div>
-        <h1 className="text-center">I will practice Redux in this page.</h1>
+        <H1>I will practice Redux in this page.</H1>
     </div>
 )
 
