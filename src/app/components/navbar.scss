@@ -4,60 +4,63 @@ $nav-menu-height: 27px;
 $nav-menu-width: 15px;
 
 div.navbar {
-  background-color: #2595d5;
-  height: 22px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+    background-color: #2595d5;
+    height: 22px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 div.navbar-brand,
 div.navbar-menu {
-  p {
-    color: #ffffff;
-    font-size: 12pt;
-    padding: 13px;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    // For the navbar-menu height, padding-top and padding bottom is used.
-    padding-top: $nav-menu-height;
-    padding-bottom: $nav-menu-height;
-    padding: {
-        top: $nav-menu-height;
-        bottom: $nav-menu-height;
-        left: $nav-menu-width;
-        right: $nav-menu-width;
-    }
-    
-    li {
-      display: inline;
-
-      a {
+    p {
         color: #ffffff;
-        text-decoration: none;
-        padding: {left: 20px; right: 20px;} 
-      }
+        font-size: 12pt;
+        padding: 13px;
     }
-  }
-  background-color: #135298;
-  border-radius: $nav-radius;
-  box-shadow: 0 1px 5px 1px #2c2c2c85;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        // For the navbar-menu height, padding-top and padding bottom is used.
+        padding-top: $nav-menu-height;
+        padding-bottom: $nav-menu-height;
+        padding: {
+            top: $nav-menu-height;
+            bottom: $nav-menu-height;
+            left: $nav-menu-width;
+            right: $nav-menu-width;
+        }
+
+        li {
+            display: inline;
+
+            a {
+                color: #ffffff;
+                text-decoration: none;
+                padding: {
+                    left: 20px;
+                    right: 20px;
+                }
+            }
+        }
+    }
+    background-color: #135298;
+    border-radius: $nav-radius;
+    box-shadow: 0 1px 5px 1px #2c2c2c85;
 }
 
 div.navbar-brand {
-  position: absolute;
-  left: 10%;
-  width: 170px;
+    position: absolute;
+    left: 10%;
+    width: 170px;
 }
 
 div.navbar-menu {
-  position: absolute;
-  left: 70%;
+    position: absolute;
+    left: 70%;
 }
