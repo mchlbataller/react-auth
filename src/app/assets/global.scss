@@ -1,10 +1,12 @@
 // About this stylesheet:
 // This stylesheet uses the DRY principle.
 //
-// 
+//
 
 // Global variables
-$global-text-color: #2D2D2D;
+$global-text-color: #2d2d2d;
 $global-font: Segoe UI, sans-serif;
 
-div.container-main { margin-top: 150px; }
+div.container-main {
+    margin-top: 150px;
+}
