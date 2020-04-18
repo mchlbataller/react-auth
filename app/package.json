@@ -48,9 +48,9 @@
     "tailwindcss": "^1.2.0"
   },
   "prettier": {
-      "trailingComma": "es5",
-      "bracketSpacing": true,
-      "tabWidth": 4
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "tabWidth": 4
   },
   "husky": {
     "hooks": {
