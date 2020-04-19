@@ -11,11 +11,7 @@ const auth = require('./src/endpoints/auth');
 app.use(express.static(path.join(__dirname, 'routes')));
 app.use(cors());
 
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+var schema = buildSchema(` type Query { hello: String } `);
 var root = { hello: () => 'Hello world!' };
 
 app.use('/graphql', graphqlHTTP({ schema: schema, rootValue: root, graphiql: true, }));

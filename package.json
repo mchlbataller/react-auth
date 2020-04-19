@@ -1,0 +1,63 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "styled-components": "^5.1.0"
+  },
+  "scripts": {
+    "start": "npm run watch:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:css": "postcss src/app/assets/tailwind.css -o src/app/assets/main.css",
+    "watch:css": "postcss src/app/assets/tailwind.css -o src/app/assets/main.css"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.3",
+    "postcss-cli": "^7.1.0",
+    "prettier": "2.0.4",
+    "tailwindcss": "^1.2.0"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "tabWidth": 4
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,scss}": "prettier --write"
+  }
+}
