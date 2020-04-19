@@ -31,9 +31,10 @@ app.get("/", function (req, res) {
 
 app.post("/auth", function (req, res) {
   // TODO:
-  // Check on database if there is a record.
+  // Verify user
   // If none, return a 404 error.
-
+  console.log(verify);
+  verify(req.body);
   res.send(auth(req));
 });
 
