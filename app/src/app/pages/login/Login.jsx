@@ -22,11 +22,16 @@ class Login extends React.Component {
     callAuthAPI() {
         let self = this;
 
+        // The form details to be passed later
         var details = {
             username: this.state.username,
             password: this.state.password,
         };
 
+        // Since the content-type is application/x-www-form-urlencoded,
+        // the server will be expecting to receive 'user=username&pass=password'
+        // data formatting.
+        // Before passing the POST data to the server, we are encoding it first.
         var formBody = [];
         for (var property in details) {
             var encodedKey = encodeURIComponent(property);
@@ -35,19 +40,23 @@ class Login extends React.Component {
         }
         formBody = formBody.join("&");
 
+        // Putting all the values together
         let url = `http://localhost:9000/auth`;
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: formBody,
         };
+
         fetch(url, reqParams)
             .then(function (res) {
                 console.log(reqParams.body);
                 return res.json();
             })
             .then(function (res) {
-                self.setState({ login: res.auth });
+                // After receiving the data
+                // we will move the token to the sessionStorage for future use
+                //
                 self.state.login === "true"
                     ? (window.location.href = "/login/success")
                     : alert(formBody);
