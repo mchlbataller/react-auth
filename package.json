@@ -1,38 +1,23 @@
 {
   "name": "react-authentication",
-  "version": "1.0",
-  "private": true,
-  "dependencies": {},
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "echo 'NOT WORKING!'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaeruu/react-authentication.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikaeruu/react-authentication/issues"
+  },
+  "homepage": "https://github.com/mikaeruu/react-authentication#readme",
   "devDependencies": {
     "husky": "^4.2.5",
-    "prettier": "2.0.4"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "bracketSpacing": true,
-    "tabWidth": 4
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,scss}": "prettier --write"
+    "prettier": "^2.0.4"
   }
 }
