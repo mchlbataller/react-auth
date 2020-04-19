@@ -18,6 +18,15 @@
   "homepage": "https://github.com/mikaeruu/react-authentication#readme",
   "devDependencies": {
     "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
     "prettier": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
