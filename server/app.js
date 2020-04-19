@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const jwt = require("./src/services/jwt");
+const generateToken = require("./src/services/jwt");
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
 const cors = require("cors");
@@ -33,13 +33,12 @@ app.post("/auth", function (req, res) {
   // TODO:
   // Verify user
   // If none, return a 404 error.
-  console.log(verify);
   verify(req.body);
   res.send(auth(req));
 });
 
 app.post("/login", function (req, res) {
-  res.send(jwt(req.body));
+  res.send(generateToken(req.body));
 });
 
 // Run the server.
