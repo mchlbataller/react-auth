@@ -4,7 +4,6 @@ import Success from "app/pages/home/home";
 import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
-import PostAuth from "app/pages/login/login-post";
 
 function AppRouter() {
     return (
@@ -15,10 +14,6 @@ function AppRouter() {
                 <Switch>
                     <Route path="/login/success">
                         <Success />
-                    </Route>
-
-                    <Route path="/login/post">
-                        <PostAuth />
                     </Route>
 
                     <Route path="/login">

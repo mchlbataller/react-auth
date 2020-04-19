@@ -3,7 +3,7 @@ var jwt = require("jsonwebtoken");
 
 function generateToken(user) {
   var u = {
-    name: user.name,
+    id: user.id,
     username: user.username,
     //    _id: user._id.toString(),
     //    image: user.image

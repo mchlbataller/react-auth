@@ -8,8 +8,6 @@ function auth(req) {
 
   let authResponse = { auth: authenticateUser };
 
-  console.log(authenticateUser);
-
   return authResponse;
 }
 

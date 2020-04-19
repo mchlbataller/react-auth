@@ -1,7 +1,18 @@
+const db = require("../db");
+const record = db.users.record;
+
 verifyUser = function (data) {
-  console.log(data.username);
-  // TODO:
-  // Verify a user here using the data on ../db
+  // Iterate through all records
+  for (var i = 0; i < record.length; i++) {
+    if (
+      record[i].username === data.username &&
+      record[i].password === data.password
+    ) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 module.exports = verifyUser;

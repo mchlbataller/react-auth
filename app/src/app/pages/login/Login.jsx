@@ -22,12 +22,18 @@ class Login extends React.Component {
     callAuthAPI() {
         let self = this;
 
-        let url = `http://localhost:9000/auth?username=${this.state.username}&password=${this.state.password}`;
-
-        fetch(url, {
-            method: "GET",
-        })
+        let url = `http://localhost:9000/auth`;
+        let reqParams = {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password,
+            }),
+        };
+        fetch(url, reqParams)
             .then(function (res) {
+                console.log("nice");
                 return res.json();
             })
             .then(function (res) {
@@ -37,7 +43,7 @@ class Login extends React.Component {
                     : alert("login failed");
             })
             .catch(function (err) {
-                alert("Error Occurred:" + err);
+                console.log("Error Occurred:" + err);
             });
     }
 

@@ -1,20 +1,25 @@
-exports.findById = function (id, cb) {
-  process.nextTick(function () {
-    var idx = id - 1;
-    if (records[idx]) cb(null, records[idx]);
-    // Make a new error showing that user does not exist
-    else cb(new Error("User" + id + " does not exist"));
-  });
-};
+exports.record = [
+  {
+    id: 1,
+    username: "mikaeruu",
+    password: "passwordtest",
+    admin: true,
+  },
+  {
+    id: 2,
+    username: "guest",
+    password: "none",
+    admin: false,
+  },
+];
 
-exports.findByUsername = function (username, cb) {
-  process.nextTick(function () {
-    for (var i = 0, len = records.length; i < len; i++) {
-      var record = records[i];
-      if (record.username === username) {
-        return cb(null, record);
-      }
+exports.dbLookup = function (user, pass) {
+  // Iterate through all records
+  for (var i = 0; i < record.length - 1; i++) {
+    if (record[i].username === user && record[i].password === pass) {
+      return true;
     }
-    return cb(null, null);
-  });
+  }
+
+  return false;
 };

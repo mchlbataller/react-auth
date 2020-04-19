@@ -30,15 +30,20 @@ app.get("/", function (req, res) {
 });
 
 app.post("/auth", function (req, res) {
-  // TODO:
-  // Verify user
-  // If none, return a 404 error.
-  verify(req.body);
-  res.send(auth(req));
-});
-
-app.post("/login", function (req, res) {
-  res.send(generateToken(req.body));
+  // If the user is verified, generate a new token.
+  if (verify(req.body)) {
+    console.log("noice");
+    var token = generateToken(req.body);
+    res.json({
+      user: req.body.username,
+      token: token,
+    });
+  } else {
+    console.log(
+      "wrong user/pass" + req.body.username + ", " + req.body.password
+    );
+    res.sendStatus(404);
+  }
 });
 
 // Run the server.
