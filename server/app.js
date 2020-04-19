@@ -52,6 +52,9 @@ app.get("/auth", function (req, res) {
   res.send(auth(req));
 });
 
+// ===========================
+//  Route for the Login service endpoint.
+//
 app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
