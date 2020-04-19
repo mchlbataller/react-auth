@@ -16,9 +16,7 @@ var root = { hello: () => 'Hello world!' };
 
 app.use('/graphql', graphqlHTTP({ schema: schema, rootValue: root, graphiql: true, }));
 
-app.get('/', function(req, res) {
-    res.send("Home");
-})
+app.get('/', function(req, res) { res.send("Home"); }) 
 
 app.get('/auth', function(req, res) {
     res.send(auth(req));
