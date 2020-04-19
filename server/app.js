@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
 
@@ -19,11 +18,7 @@ var schema = buildSchema(`
 `);
 var root = { hello: () => 'Hello world!' };
 
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
+app.use('/graphql', graphqlHTTP({ schema: schema, rootValue: root, graphiql: true, }));
 
 app.get('/', function(req, res) {
     res.send("Home");
