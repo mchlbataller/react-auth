@@ -4,6 +4,8 @@ const app = express();
 const db = require("./db");
 const Strategy = require("passport-local");
 
+const jwt = require("./src/services/jwt");
+
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
 
@@ -58,13 +60,9 @@ app.post("/auth", function (req, res) {
 // ===========================
 //  Route for the Login service endpoint.
 //
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  function (req, res) {
-    console.log("nice");
-    res.redirect("/asdasd");
-  }
-);
+app.post("/login", function (req, res) {
+  console.log("nice");
+  res.send(jwt(req.body));
+});
 
 app.listen(process.env.PORT || 9000);
