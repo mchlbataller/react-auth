@@ -22,25 +22,35 @@ class Login extends React.Component {
     callAuthAPI() {
         let self = this;
 
+        var details = {
+            username: this.state.username,
+            password: this.state.password,
+        };
+
+        var formBody = [];
+        for (var property in details) {
+            var encodedKey = encodeURIComponent(property);
+            var encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+
         let url = `http://localhost:9000/auth`;
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-            }),
+            body: formBody,
         };
         fetch(url, reqParams)
             .then(function (res) {
-                console.log("nice");
+                console.log(reqParams.body);
                 return res.json();
             })
             .then(function (res) {
                 self.setState({ login: res.auth });
                 self.state.login === "true"
                     ? (window.location.href = "/login/success")
-                    : alert("login failed");
+                    : alert(formBody);
             })
             .catch(function (err) {
                 console.log("Error Occurred:" + err);

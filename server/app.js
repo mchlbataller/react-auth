@@ -40,7 +40,7 @@ app.post("/auth", function (req, res) {
     });
   } else {
     console.log(
-      "wrong user/pass" + req.body.username + ", " + req.body.password
+      "wrong user/pass" + req.body["username"] + ", " + req.body["password"]
     );
     res.sendStatus(404);
   }
