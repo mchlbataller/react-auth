@@ -2,17 +2,6 @@
     "version": "0.1.0",
     "configurations": [
         {
-            "type": "edge",
-            "request": "launch",
-            "name": "Launch Edge",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/app/src",
-            "sourceMapPathOverrides": {
-                "webpack:///src/*": "${webRoot}/app/*"
-              }
-
-        },
-        {
             "type": "node",
             "request": "launch",
             "name": "nodemon",
