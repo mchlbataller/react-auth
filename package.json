@@ -28,5 +28,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.3"
   }
 }

@@ -32,6 +32,9 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, "routes")));
 app.use(cors());
 
+// Required to use since the server must handle POST requests.
+app.use(express.urlencoded());
+
 var schema = buildSchema(`
   type Query {
     hello: String
@@ -48,7 +51,7 @@ app.get("/", function (req, res) {
   res.send("Home");
 });
 
-app.get("/auth", function (req, res) {
+app.post("/auth", function (req, res) {
   res.send(auth(req));
 });
 
@@ -59,7 +62,8 @@ app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
   function (req, res) {
-    res.redirect("/");
+    console.log("nice");
+    res.redirect("/asdasd");
   }
 );
 
