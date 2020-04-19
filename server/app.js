@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const db = require('./db');
+const Strategy = require('passport-local');
 
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
