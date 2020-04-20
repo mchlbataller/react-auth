@@ -62,7 +62,7 @@ class Login extends React.Component {
             .then(function (res) {
                 // After receiving the data
                 // we will move the token to the sessionStorage for future use
-
+                sessionStorage.setItem("jwt", res.token);
                 // Set the login state as true for redirection
                 self.setState({ login: true });
             })

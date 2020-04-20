@@ -1,17 +1,19 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const generateToken = require("./src/services/jwt");
+const generateToken = require("./src/services/jwtGenerate");
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
 const cors = require("cors");
 const auth = require("./src/endpoints/auth");
 const verify = require("./src/services/verifyUser");
+const verifyToken = require("./src/services/jwtVerify");
 
 // Express Initialization
 app.use(express.static(path.join(__dirname, "routes")));
 app.use(cors());
 app.use(express.urlencoded());
+app.use(express.json());
 
 // GraphQL Initialization
 var schema = buildSchema(`
@@ -44,6 +46,14 @@ app.post("/auth", function (req, res) {
     );
     res.sendStatus(404);
   }
+});
+
+// Route for re-authentication
+app.post("/reauth", function (req, res) {
+  console.log(req.body);
+  console.log("Verified JWT: " + verifyToken(req));
+  if (verifyToken(req) != undefined) res.send(JSON.stringify({ reauth: true }));
+  else res.send(JSON.stringify({ reauth: false }));
 });
 
 // Run the server.
