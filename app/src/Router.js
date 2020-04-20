@@ -10,23 +10,30 @@ import { RouteProtector, HomeAfterAuth } from "services/authService";
 function AppRouter() {
     return (
         <React.Fragment>
-            <Navbar />
-
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
-                        <RouteProtector next="/login/success" />
-                        <Success />
-                    </Route>
-
-                    <Route path="/login">
-                        <Login />
-                    </Route>
-
-                    <Route path="/">
+                        <Navbar linkToHome="/home" loginPrompt="Logout" />
                         <RouteProtector>
                             <Success />
                         </RouteProtector>
+                    </Route>
+
+                    <Route path="/login">
+                        <Navbar linkToHome="/" loginPrompt="Login" />
+                        <Login />
+                    </Route>
+
+                    <Route path="/home">
+                        <Navbar linkToHome="/home" loginPrompt="Logout" />
+                        <RouteProtector>
+                            <Success />
+                        </RouteProtector>
+                    </Route>
+
+                    <Route path="/">
+                        <Navbar linkToHome="/" loginPrompt="Login" />
+                        <Landing />
                     </Route>
                 </Switch>
             </div>
