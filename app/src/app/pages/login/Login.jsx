@@ -1,15 +1,21 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { H1 } from "app/components/text";
 
 function ProceedToHome() {
-    return <Redirect to="/success" />;
+    let history = useHistory();
+    history.push("/");
 }
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { username: "", password: "", login: false };
+        this.state = {
+            username: "",
+            password: "",
+            login: false,
+            loginCount: 1,
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -56,13 +62,14 @@ class Login extends React.Component {
             .then(function (res) {
                 // After receiving the data
                 // we will move the token to the sessionStorage for future use
-                //
-                self.state.login === "true"
-                    ? (window.location.href = "/login/success")
-                    : alert(formBody);
+
+                // Set the login state as true for redirection
+                self.setState({ login: true });
             })
             .catch(function (err) {
-                console.log("Error Occurred:" + err);
+                self.setState((prevState) => {
+                    return { loginCount: prevState.loginCount + 1 };
+                });
             });
     }
 
@@ -71,9 +78,18 @@ class Login extends React.Component {
     }
 
     render() {
-        return (
+        // Check the state 'login' if true, then redirect.
+        return this.state.login === true ? (
+            <Redirect to="/login/success" />
+        ) : (
             <div className="flex flex-col bg-gray-200 p-10 w-1/3 mx-auto">
                 <H1>Login</H1>
+
+                {this.state.login === false && this.state.loginCount > 1 && (
+                    <p className="text-center bg-red-900 text-white p-5">
+                        Wrong username/password{" "}
+                    </p>
+                )}
 
                 <p className="text-lg font-bold mx-auto mt-4 mb-2">Username</p>
                 <input
