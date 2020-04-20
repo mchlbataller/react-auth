@@ -35,11 +35,10 @@ class VerifyJWT extends React.Component {
     }
 
     render() {
-        // return <h1>Verified: {this.state.verified}</h1>;
         return this.state.verified != "true" && this.state.count > 1 ? (
-            <p>Redirecting to login...</p>
+            <Redirect to="/login" />
         ) : (
-            <p>Proceed</p>
+            <div />
         );
     }
 }
