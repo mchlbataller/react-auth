@@ -1,13 +1,15 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+
 // Service for reauthentication using JSON Web Tokens
-class VerifyJWT extends React.Component {
+class RouteProtector extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { verified: "false", count: 1 };
+        this.state = { verified: false, count: 1 };
         this.requestAPI = this.requestAPI.bind(this);
     }
 
+    // When the authService has been mounted, call the API for re-authentication.
     componentDidMount() {
         this.requestAPI();
     }
@@ -26,7 +28,7 @@ class VerifyJWT extends React.Component {
             .then((res) => {
                 this.setState((prevState) => {
                     return {
-                        verified: JSON.stringify(res.reauth),
+                        verified: res.reauth,
                         count: prevState.count + 1,
                     };
                 });
@@ -35,7 +37,9 @@ class VerifyJWT extends React.Component {
     }
 
     render() {
-        return this.state.verified != "true" && this.state.count > 1 ? (
+        // If the token has not been verified when the API for reauth has been called,
+        // redirect the user to login.
+        return !this.state.verified && this.state.count > 1 ? (
             <Redirect to="/login" />
         ) : (
             <div />
@@ -43,4 +47,4 @@ class VerifyJWT extends React.Component {
     }
 }
 
-export default VerifyJWT;
+export default RouteProtector;
