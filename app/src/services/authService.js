@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 class VerifyJWT extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { verified: "false" };
+        this.state = { verified: "false", count: 1 };
         this.requestAPI = this.requestAPI.bind(this);
     }
 
@@ -24,12 +24,23 @@ class VerifyJWT extends React.Component {
         fetch(url, reqParams)
             .then((res) => res.json())
             .then((res) => {
-                this.setState({ verified: res["reauth"] });
+                this.setState((prevState) => {
+                    return {
+                        verified: JSON.stringify(res.reauth),
+                        count: prevState.count + 1,
+                    };
+                });
+                this.setState({ verified: JSON.stringify(res.reauth) });
             });
     }
 
     render() {
-        return <h1>Verified: {this.state.verified}</h1>;
+        // return <h1>Verified: {this.state.verified}</h1>;
+        return this.state.verified != "true" && this.state.count > 1 ? (
+            <p>Redirecting to login...</p>
+        ) : (
+            <p>Proceed</p>
+        );
     }
 }
 
