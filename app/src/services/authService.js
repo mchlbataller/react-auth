@@ -1,5 +1,9 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import Success from "app/pages/home/home";
+import Navbar from "app/components/Navbar";
+import Login from "app/pages/login/Login";
+import Landing from "app/pages/landing/Landing";
 
 // Service for reauthentication using JSON Web Tokens
 class RouteProtector extends React.Component {
@@ -42,9 +46,30 @@ class RouteProtector extends React.Component {
         return !this.state.verified && this.state.count > 1 ? (
             <Redirect to="/login" />
         ) : (
-            <div />
+            this.props.children
         );
     }
 }
 
-export default RouteProtector;
+async function reauthAPI() {
+    let token = sessionStorage.getItem("jwt");
+    let url = "http://localhost:9000/reauth";
+    let reqParams = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: token }),
+    };
+    let fetchFunc = await fetch(url, reqParams);
+    let proceed = await fetchFunc.json();
+
+    return proceed.reauth;
+}
+
+function HomeAfterAuth() {
+    // If authenticated, render the Home insted of the Landing page.
+    let authenticated = JSON.stringify(reauthAPI());
+
+    return <p>{authenticated}</p>;
+}
+
+export { RouteProtector, HomeAfterAuth };

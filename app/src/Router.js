@@ -5,7 +5,7 @@ import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
 
-import VerifyJWT from "services/authService";
+import { RouteProtector, HomeAfterAuth } from "services/authService";
 
 function AppRouter() {
     return (
@@ -15,7 +15,7 @@ function AppRouter() {
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
-                        <VerifyJWT next="/login/success" />
+                        <RouteProtector next="/login/success" />
                         <Success />
                     </Route>
 
@@ -24,7 +24,9 @@ function AppRouter() {
                     </Route>
 
                     <Route path="/">
-                        <Landing />
+                        <RouteProtector>
+                            <Success />
+                        </RouteProtector>
                     </Route>
                 </Switch>
             </div>
