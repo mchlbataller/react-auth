@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <div className="navbar">
             <div className="navbar-brand">
@@ -15,14 +15,14 @@ const Navbar = () => {
             <div className="navbar-menu">
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to={props.linkToHome}>Home</Link>
                     </li>
                     <li>
                         <Link to="/register">Register</Link>
                     </li>
                     <li>
                         <Link to="/login" className="nav-login-btn">
-                            Login
+                            {props.loginPrompt}
                         </Link>
                     </li>
                 </ul>

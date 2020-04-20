@@ -2,12 +2,17 @@
     "version": "0.1.0",
     "configurations": [
         {
-            "name": "Attach to url with files served",
-            "type": "edge",
+            "type": "node",
             "request": "launch",
-            "url": "http://localhost:3000",
-            "preLaunchTask": "npm: start",
-            "webRoot": "${workspaceFolder}"
+            "name": "nodemon",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/server/app.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
