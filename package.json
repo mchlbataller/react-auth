@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon server/app.js"
   },
   "repository": {
     "type": "git",
@@ -16,19 +16,6 @@
     "url": "https://github.com/mikaeruu/react-authentication/issues"
   },
   "homepage": "https://github.com/mikaeruu/react-authentication#readme",
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "lint-staged": "^10.1.6",
-    "prettier": "^2.0.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,css,md}": "prettier --write"
-  },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.3"
