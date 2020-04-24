@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && yarn && node app.js",
-    "heroku-postbuild": "cd app && yarn && yarn build",
+    "start": "cd server && yarn && PORT=80 node app.js",
     "build": "cd app && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "server": "cd server && node app.js",

@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build": "API_URL='my-first-pwa.herokuapp.com/auth' npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "npx postcss src/app/assets/tailwind.css -o src/app/assets/main.css",

@@ -20,7 +20,7 @@ class RouteProtector extends React.Component {
 
     requestAPI() {
         let token = sessionStorage.getItem("jwt");
-        let url = "http://localhost:9000/reauth";
+        let url = "https://my-first-pwa.herokuapp.com/reauth";
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -53,7 +53,7 @@ class RouteProtector extends React.Component {
 
 async function reauthAPI() {
     let token = sessionStorage.getItem("jwt");
-    let url = "http://localhost:9000/reauth";
+    let url = process.env.API_URL;
     let reqParams = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
