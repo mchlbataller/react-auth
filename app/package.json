@@ -21,8 +21,8 @@
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "postcss src/app/assets/tailwind.css -o src/app/assets/main.css",
-    "watch:css": "postcss src/app/assets/tailwind.css -o src/app/assets/main.css"
+    "build:css": "npx postcss src/app/assets/tailwind.css -o src/app/assets/main.css",
+    "watch:css": "npx postcss src/app/assets/tailwind.css -o src/app/assets/main.css"
   },
   "eslintConfig": {
     "extends": "react-app"
