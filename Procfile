@@ -1,1 +1,1 @@
-web: yarn build-static
+web: cd app && yarn build-static
