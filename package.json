@@ -23,6 +23,8 @@
   "homepage": "https://github.com/mikaeruu/react-authentication#readme",
   "dependencies": {
     "concurrently": "^5.1.0",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0"
   }
 }
