@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon server/app.js"
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "server": "cd server && node app.js",
+    "client": "cd app && yarn start"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/mikaeruu/react-authentication#readme",
   "dependencies": {
+    "concurrently": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.3"
   }
