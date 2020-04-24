@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "server": "cd server && node app.js",
-    "client": "cd app && yarn start"
+    "client": "cd app && yarn start",
+    "build-static": "cd app && yarn build"
   },
   "repository": {
     "type": "git",
