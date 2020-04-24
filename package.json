@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon server/app.js"
+    "start": "cd server && yarn && node app.js",
+    "heroku-postbuild": "cd app && yarn && yarn build",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "server": "cd server && node app.js",
+    "client": "cd app && yarn start",
+    "build-static": "cd app && yarn build"
   },
   "repository": {
     "type": "git",
@@ -17,7 +22,9 @@
   },
   "homepage": "https://github.com/mikaeruu/react-authentication#readme",
   "dependencies": {
-    "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.3"
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0"
   }
 }
