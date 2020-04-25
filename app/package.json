@@ -6,10 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "dotenv": "^8.2.0",
     "node-sass": "^4.13.1",
     "postcss": "^7.0.27",
     "postcss-cli": "^7.1.0",
-    "tailwindcss": "^1.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -17,11 +17,12 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "tailwindcss": "^1.2.0"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
-    "build": "API_URL='my-first-pwa.herokuapp.com/auth' npm run build:css && react-scripts build",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "npx postcss src/app/assets/tailwind.css -o src/app/assets/main.css",

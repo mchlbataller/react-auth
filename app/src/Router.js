@@ -10,6 +10,7 @@ import { RouteProtector, HomeAfterAuth } from "services/authService";
 function AppRouter() {
     return (
         <React.Fragment>
+            {alert(process.env.NODE_ENV)}
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
