@@ -28,6 +28,7 @@ class Login extends React.Component {
     callAuthAPI() {
         let self = this;
 
+        let environment = process.env;
         // The form details to be passed later
         var details = {
             username: this.state.username,
@@ -47,7 +48,7 @@ class Login extends React.Component {
         formBody = formBody.join("&");
 
         // Putting all the values together
-        let url = `http://localhost:9000/auth`;
+        let url = ((environment.NODE_ENV === 'production' ? 'https://' + environment.REACT_APP_PROD_API : 'http://' + environment.REACT_APP_DEV_API) + '/auth');
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
