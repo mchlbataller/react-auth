@@ -8,7 +8,7 @@ function generateToken(user) {
     //    _id: user._id.toString(),
     //    image: user.image
   };
-  return (token = jwt.sign(u, "secret!", {
+  return (token = jwt.sign(u, process.env.JWT_KEY, {
     expiresIn: 60 * 60 * 24, // expires in 24 hours
   }));
 }

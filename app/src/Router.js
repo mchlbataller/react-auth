@@ -8,9 +8,10 @@ import Landing from "app/pages/landing/Landing";
 import { RouteProtector, HomeAfterAuth } from "services/authService";
 
 function AppRouter() {
+    let environment = process.env;
     return (
         <React.Fragment>
-            {alert(process.env.NODE_ENV)}
+            {alert((environment.NODE_ENV === 'production' ? environment.REACT_APP_PROD_API : environment.REACT_APP_DEV_API) + '/auth')}
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
