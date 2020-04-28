@@ -52,7 +52,6 @@ class Login extends React.Component {
 
         fetch(url, reqParams)
             .then(function (res) {
-                console.log(reqParams.body);
                 return res.json();
             })
             .then(function (res) {

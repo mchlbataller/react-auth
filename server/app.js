@@ -22,38 +22,32 @@ var schema = buildSchema(`
   } `);
 var root = { hello: () => "Hello world!" };
 app.use(
-  "/graphql",
-  graphqlHTTP({ schema: schema, rootValue: root, graphiql: true })
+	"/graphql",
+	graphqlHTTP({ schema: schema, rootValue: root, graphiql: true })
 );
 
 // Routes
 app.get("/", function (req, res) {
-  res.send("Home");
+	res.send("Home");
 });
 
 app.post("/auth", function (req, res) {
-  // If the user is verified, generate a new token.
-  if (verify(req.body)) {
-    console.log('NOICE: ' + process.env.JWT_KEY);
-    var token = generateToken(req.body);
-    res.json({
-      user: req.body.username,
-      token: token,
-    });
-  } else {
-    console.log(
-      "wrong user/pass" + req.body["username"] + ", " + req.body["password"]
-    );
-    res.sendStatus(404);
-  }
+	// If the user is verified, generate a new token.
+	if (verify(req.body)) {
+		var token = generateToken(req.body);
+		res.json({
+			user: req.body.username,
+			token: token,
+		});
+	} else {
+		res.sendStatus(404);
+	}
 });
 
 // Route for re-authentication
 app.post("/reauth", function (req, res) {
-  console.log(req.body);
-  console.log("Verified JWT: " + verifyToken(req));
-  if (verifyToken(req) != undefined) res.send(JSON.stringify({ reauth: true }));
-  else res.send(JSON.stringify({ reauth: false }));
+	if (verifyToken(req) != undefined) res.send(JSON.stringify({ reauth: true }));
+	else res.send(JSON.stringify({ reauth: false }));
 });
 
 // Run the server.
