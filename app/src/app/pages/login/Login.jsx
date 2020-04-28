@@ -2,11 +2,6 @@ import React from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { H1 } from "app/components/text";
 
-function ProceedToHome() {
-    let history = useHistory();
-    history.push("/");
-}
-
 class Login extends React.Component {
     constructor(props) {
         super(props);
