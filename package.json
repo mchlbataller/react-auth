@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && yarn && PORT=80 JWT_KEY=secret! node app.js",
+    "start": "cd server && yarn && node app.js",
     "build": "cd app && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "server": "cd server && node app.js",
