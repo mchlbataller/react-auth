@@ -34,7 +34,7 @@ app.get("/", function (req, res) {
 app.post("/auth", function (req, res) {
   // If the user is verified, generate a new token.
   if (verify(req.body)) {
-    console.log("noice");
+    console.log(process.env.JWT_KEY);
     var token = generateToken(req.body);
     res.json({
       user: req.body.username,
