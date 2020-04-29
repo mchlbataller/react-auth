@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { H1 } from "app/components/text";
-
+import enterHandler, {submit} from "services/enterHandler";
 
 const Login = () => {
     const [user, setUser] = useState("");
@@ -18,6 +18,7 @@ const Login = () => {
                 onChange={(e) => {
                     setUser(e.target.value);
                 }}
+                onKeyPress={(e) => enterHandler(e, user, pass, setResponse)}
             />
             <input
                 type="password"
@@ -25,6 +26,7 @@ const Login = () => {
                 onChange={(e) => {
                     setPass(e.target.value);
                 }}
+                onKeyPress={(e) => enterHandler(e, user, pass, setResponse)}
             />
 
             <button
@@ -33,8 +35,6 @@ const Login = () => {
             >
                 Submit
             </button>
-
-
         </div>
     );
 };
@@ -42,7 +42,6 @@ const Login = () => {
 const Home = () => (
     <div>
         <H1>I will practice Hooks in this page.</H1>
-        <Hooks />
         <Login />
     </div>
 );

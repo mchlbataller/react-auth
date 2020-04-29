@@ -1,4 +1,6 @@
-const submit = (user, pass, setRequest) => {
+import axios from "axios";
+
+export const submit = (user, pass, setRequest) => {
     // URL config
     const url = process.env.REACT_APP_DEV_API + "auth";
 
@@ -12,6 +14,6 @@ const submit = (user, pass, setRequest) => {
         });
 };
 
-export default function enterHandler(event) {
-    console.log(event.key);
+export default function enterHandler(event, ...params) {
+    event.key === "Enter" && submit(...params);
 }
