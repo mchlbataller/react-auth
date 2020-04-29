@@ -3,7 +3,7 @@ import { H1 } from "app/components/text";
 
 const Home = () => (
     <div>
-        <H1>I will practice Redux in this page.</H1>
+        <H1>I will practice Hooks in this page.</H1>
     </div>
 );
 
