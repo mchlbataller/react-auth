@@ -1,120 +1,52 @@
-import React from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { H1 } from "app/components/text";
+import enterHandler, { submit } from "services/enterHandler";
 
-class Login extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: "",
-            password: "",
-            login: false,
-            loginCount: 1,
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const Login = () => {
+    const [user, setUser] = useState("");
+    const [pass, setPass] = useState("");
+    const [response, setResponse] = useState({});
 
-    handleChange(e) {
-        const input = e.target.type === "text" ? "username" : "password";
-        this.setState({ [input]: e.target.value });
-    }
-
-    callAuthAPI() {
-        let self = this;
-
-        let environment = process.env;
-        // The form details to be passed later
-        var details = {
-            username: this.state.username,
-            password: this.state.password,
-        };
-
-        // Since the content-type is application/x-www-form-urlencoded,
-        // the server will be expecting to receive 'user=username&pass=password'
-        // data formatting.
-        // Before passing the POST data to the server, we are encoding it first.
-        var formBody = [];
-        for (var property in details) {
-            var encodedKey = encodeURIComponent(property);
-            var encodedValue = encodeURIComponent(details[property]);
-            formBody.push(encodedKey + "=" + encodedValue);
-        }
-        formBody = formBody.join("&");
-
-        // Putting all the values together
-        let url =
-            (environment.NODE_ENV === "production"
-                ? environment.REACT_APP_PROD_API
-                : environment.REACT_APP_DEV_API) + "/auth";
-        let reqParams = {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formBody,
-        };
-
-        fetch(url, reqParams)
-            .then(function (res) {
-                return res.json();
-            })
-            .then(function (res) {
-                // After receiving the data
-                // we will move the token to the sessionStorage for future use
-                sessionStorage.setItem("jwt", res.token);
-                // Set the login state as true for redirection
-                self.setState({ login: true });
-            })
-            .catch(function (err) {
-                self.setState((prevState) => {
-                    return { loginCount: prevState.loginCount + 1 };
-                });
-            });
-    }
-
-    handleSubmit() {
-        this.callAuthAPI();
-    }
-
-    render() {
-        // Check the state 'login' if true, then redirect.
-        return this.state.login === true ? (
-            <Redirect to="/login/success" />
-        ) : (
-            <div className="flex flex-col bg-gray-200 p-10 w-1/3 mx-auto">
-                <H1>Login</H1>
-
-                {this.state.login === false && this.state.loginCount > 1 && (
+    return (
+        <div className="bg-gray-300 border border-gray-100 flex mx-auto w-1/3 flex flex-col p-5">
+            {/* If the response has a value, return the response. */}
+            {response.verified === true ? (
+                <Redirect to="/login/success" />
+            ) : (
+                response.verified === false && (
                     <p className="text-center bg-red-900 text-white p-5">
-                        Wrong username/password{" "}
+                        {response.error}
                     </p>
-                )}
+                )
+            )}
 
-                <p className="text-lg font-bold mx-auto mt-4 mb-2">Username</p>
-                <input
-                    type="text"
-                    onChange={this.handleChange}
-                    value={this.state.username}
-                    className="flex-1 border rounded mb-5 ml-5 mr-5 p-2"
-                />
+            <p className="flex-1 mx-auto p-5 font-light text-2xl">Login</p>
+            <input
+                type="text"
+                className="flex-1 p-2  my-2 mx-5 bg-gray-100 border rounded-sm border"
+                onChange={(e) => {
+                    setUser(e.target.value);
+                }}
+                onKeyPress={(e) => enterHandler(e, user, pass, setResponse)}
+            />
+            <input
+                type="password"
+                className="flex-1 p-2 my-2 mx-5 bg-gray-100 border rounded-sm border"
+                onChange={(e) => {
+                    setPass(e.target.value);
+                }}
+                onKeyPress={(e) => enterHandler(e, user, pass, setResponse)}
+            />
 
-                <p className="text-lg font-bold mx-auto mt-1 mb-2">Password</p>
-                <input
-                    type="password"
-                    onChange={this.handleChange}
-                    value={this.state.password}
-                    className="flex-1 border rounded mb-5 ml-5 mr-5 p-2"
-                />
-                <button
-                    onClick={this.handleSubmit}
-                    className="border-blue-700 h-12 border bg-blue-700 hover:shadow-outline w-40 rounded-full mx-auto text-gray-100"
-                >
-                    Submit
-                </button>
-                {this.state.login === true && <Redirect to="/success" />}
-            </div>
-        );
-    }
-}
-
+            <button
+                className="border-blue-700 h-12 border bg-blue-700 hover:shadow-outline w-40 rounded-full mx-auto text-gray-100"
+                onClick={() => submit(user, pass, setResponse)}
+            >
+                Submit
+            </button>
+        </div>
+    );
+};
 
 export default Login;

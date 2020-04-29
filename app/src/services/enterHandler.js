@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export const submit = (user, pass, setRequest) => {
     // URL config
@@ -10,7 +11,15 @@ export const submit = (user, pass, setRequest) => {
             password: pass,
         })
         .then((res) => {
-            setRequest(JSON.stringify(res));
+            res = res.data;
+            setRequest({ verified: true });
+            // After receiving the data
+            // we will move the token to the sessionStorage for future use
+            sessionStorage.setItem("jwt", res.token);
+            // Set the login state as true for redirection
+        })
+        .catch(function (err) {
+            setRequest({ verified: false, error: "Login failed for " + user });
         });
 };
 
