@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { H1 } from "app/components/text";
 
 const Home = () => (

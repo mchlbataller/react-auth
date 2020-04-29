@@ -5,10 +5,9 @@ import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
 
-import { RouteProtector, HomeAfterAuth } from "services/authService";
+import { RouteProtector } from "services/authService";
 
 function AppRouter() {
-    let environment = process.env;
     return (
         <React.Fragment>
             <div className="container-main mx-48">

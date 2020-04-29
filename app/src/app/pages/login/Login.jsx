@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { H1 } from "app/components/text";
 import enterHandler, { submit } from "services/enterHandler";
 
 const Login = () => {

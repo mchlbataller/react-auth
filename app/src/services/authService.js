@@ -1,9 +1,5 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Success from "app/pages/home/Home";
-import Navbar from "app/components/Navbar";
-import Login from "app/pages/login/Login";
-import Landing from "app/pages/landing/Landing";
 
 // Service for reauthentication using JSON Web Tokens
 class RouteProtector extends React.Component {

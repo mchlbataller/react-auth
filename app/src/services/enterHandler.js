@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 export const submit = (user, pass, setRequest) => {
     // URL config
