@@ -7,7 +7,7 @@
     "start": "cd server && yarn && node app.js",
     "build": "cd app && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "server": "cd server && node app.js",
+    "server": "cd server && nodemon app.js",
     "client": "cd app && yarn start"
   },
   "repository": {

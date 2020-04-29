@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Success from "app/pages/home/home";
+import Success from "app/pages/home/Home";
 import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
@@ -20,7 +20,12 @@ class RouteProtector extends React.Component {
 
     requestAPI() {
         let token = sessionStorage.getItem("jwt");
-        let url = "https://my-first-pwa.herokuapp.com/reauth";
+        let environment = process.env;
+
+        let url =
+            (environment.NODE_ENV === "production"
+                ? environment.REACT_APP_PROD_API
+                : environment.REACT_APP_DEV_API) + "reauth";
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/json" },

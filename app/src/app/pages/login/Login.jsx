@@ -43,7 +43,10 @@ class Login extends React.Component {
         formBody = formBody.join("&");
 
         // Putting all the values together
-        let url = ((environment.NODE_ENV === 'production' ? 'https://' + environment.REACT_APP_PROD_API : 'http://' + environment.REACT_APP_DEV_API) + '/auth');
+        let url =
+            (environment.NODE_ENV === "production"
+                ? environment.REACT_APP_PROD_API
+                : environment.REACT_APP_DEV_API) + "/auth";
         let reqParams = {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },

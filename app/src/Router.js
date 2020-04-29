@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Success from "app/pages/home/home";
+import Success from "app/pages/home/Home";
 import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
@@ -11,7 +11,6 @@ function AppRouter() {
     let environment = process.env;
     return (
         <React.Fragment>
-            {alert((environment.NODE_ENV === 'production' ? environment.REACT_APP_PROD_API : environment.REACT_APP_DEV_API) + '/auth')}
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
