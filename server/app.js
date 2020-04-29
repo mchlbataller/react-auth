@@ -12,7 +12,6 @@ const verifyToken = require("./src/services/jwtVerify");
 // Express Initialization
 app.use(express.static(path.join(__dirname, "routes")));
 app.use(cors());
-app.use(express.urlencoded());
 app.use(express.json());
 
 // GraphQL Initialization
