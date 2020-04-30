@@ -7,7 +7,13 @@ const Progress = () => (
         {versionRecords.reverse().map((record) => (
             <Version key={record.version.toString()}>
                 <Header>{record.version}</Header>
-                <li>{record.notes}</li>
+                {typeof record.notes !== "object" ? (
+                    <li>{record.notes}</li>
+                ) : (
+                    record.notes.map((note, index) => (
+                        <li key={index}>{note}</li>
+                    ))
+                )}
             </Version>
         ))}
     </VersionList>

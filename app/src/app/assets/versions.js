@@ -9,7 +9,7 @@ const versionRecords = [
     },
     { version: 1.2, notes: "Revamped authentication page design" },
     { version: 1.3, notes: "Enabled offline mode with service-workers" },
-    { version: 1.4, notes: "" },
+    { version: 1.4, notes: ["note", "note1"] },
 ];
 
 export default versionRecords;
