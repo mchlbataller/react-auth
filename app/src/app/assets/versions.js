@@ -9,7 +9,15 @@ const versionRecords = [
     },
     { version: 1.2, notes: "Revamped authentication page design" },
     { version: 1.3, notes: "Enabled offline mode with service-workers" },
-    { version: 1.4, notes: ["note", "note1"] },
+    {
+        version: 1.4,
+        notes: [
+            "Enabled logging in reauthentication endpoint",
+            "Replaced HOC-based Login code to React Hooks-based code",
+            "Added new versioning mechanisms",
+            "Introduced usage of environment variables",
+        ],
+    },
 ];
 
 export default versionRecords;
