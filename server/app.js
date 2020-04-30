@@ -5,7 +5,6 @@ const generateToken = require("./src/services/jwtGenerate");
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
 const cors = require("cors");
-const auth = require("./src/endpoints/auth");
 const verify = require("./src/services/verifyUser");
 const verifyToken = require("./src/services/jwtVerify");
 
