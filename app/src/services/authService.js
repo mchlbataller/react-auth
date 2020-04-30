@@ -52,25 +52,4 @@ class RouteProtector extends React.Component {
     }
 }
 
-async function reauthAPI() {
-    let token = sessionStorage.getItem("jwt");
-    let url = process.env.API_URL;
-    let reqParams = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: token }),
-    };
-    let fetchFunc = await fetch(url, reqParams);
-    let proceed = await fetchFunc.json();
-
-    return proceed.reauth;
-}
-
-function HomeAfterAuth() {
-    // If authenticated, render the Home insted of the Landing page.
-    let authenticated = JSON.stringify(reauthAPI());
-
-    return <p>{authenticated}</p>;
-}
-
-export { RouteProtector, HomeAfterAuth };
+export default RouteProtector;
