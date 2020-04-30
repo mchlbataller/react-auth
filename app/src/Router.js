@@ -9,7 +9,7 @@ import RouteProtector from "services/routeProtector";
 
 function AppRouter() {
     return (
-        <React.Fragment>
+        <>
             <div className="container-main mx-48">
                 <Switch>
                     <Route path="/login/success">
@@ -37,7 +37,7 @@ function AppRouter() {
                     </Route>
                 </Switch>
             </div>
-        </React.Fragment>
+        </>
     );
 }
 

@@ -45,7 +45,7 @@ app.post("/auth", function (req, res) {
 
 // Route for re-authentication
 app.post("/reauth", function (req, res) {
-  console.log("[LOG] Reauth: " + req.body.token);
+  console.log("[LOG] Reauth: TOKEN=" + req.body.token.slice(0, 15) + "...");
   if (verifyToken(req) != undefined) res.send(JSON.stringify({ reauth: true }));
   else res.send(JSON.stringify({ reauth: false }));
 });
