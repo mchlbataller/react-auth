@@ -5,7 +5,7 @@ import Navbar from "app/components/Navbar";
 import Login from "app/pages/login/Login";
 import Landing from "app/pages/landing/Landing";
 
-import RouteProtector from "services/authService";
+import RouteProtector from "services/routeProtector";
 
 function AppRouter() {
     return (
