@@ -5,9 +5,9 @@ import axios from "axios";
 const RouteProtector = (props) => {
     const [verified, reAuth] = useState(false);
     let url =
-        (environment.NODE_ENV === "production"
-            ? environment.REACT_APP_PROD_API
-            : environment.REACT_APP_DEV_API) + "reauth";
+        (process.env.NODE_ENV === "production"
+            ? process.env.REACT_APP_PROD_API
+            : process.env.REACT_APP_DEV_API) + "reauth";
 
     axios
         .post(url, {
