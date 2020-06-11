@@ -4,7 +4,7 @@ import React from "react";
 
 function Landing() {
     return (
-        <div>
+        <div className="pt-24 px-5 lg:pt-0">
             <h1 className="text-center text-3xl font-light">
                 This app is my coding playground.
             </h1>

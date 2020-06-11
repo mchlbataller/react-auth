@@ -10,7 +10,7 @@ import RouteProtector from "services/routeProtector";
 function AppRouter() {
     return (
         <>
-            <div className="container-main mx-48">
+            <div className="container-main lg:mx-48">
                 <Switch>
                     <Route path="/login/success">
                         <Navbar linkToHome="/home" loginPrompt="Logout" />
