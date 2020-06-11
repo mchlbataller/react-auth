@@ -5,11 +5,14 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./app/assets/global.scss";
 import "./app/assets/main.css";
+import UserProvider from "./app/firebase-providers/UserProvider";
 
 ReactDOM.render(
-    <Router>
-        <AppRouter />
-    </Router>,
+    <UserProvider>
+        <Router>
+            <AppRouter />
+        </Router>
+    </UserProvider>,
     document.getElementById("root")
 );
 

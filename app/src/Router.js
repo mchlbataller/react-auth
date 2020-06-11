@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Success from "app/pages/home/Home";
 import Navbar from "app/components/Navbar";
-import Login from "app/pages/login/Login";
+import { Login, Register } from "app/pages/auth";
 import Landing from "app/pages/landing/Landing";
 
 import RouteProtector from "services/routeProtector";
@@ -12,6 +12,10 @@ function AppRouter() {
         <>
             <div className="container-main lg:mx-48">
                 <Switch>
+                    <Route path="/register" exact>
+                        <Navbar linkToHome="/" loginPrompt="Login" />
+                        <Register />
+                    </Route>
                     <Route path="/login/success">
                         <Navbar linkToHome="/home" loginPrompt="Logout" />
                         <RouteProtector>

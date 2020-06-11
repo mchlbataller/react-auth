@@ -18,6 +18,10 @@ const versionRecords = [
             "Introduced usage of environment variables",
         ],
     },
+    {
+        version: "2.0 - Firebase",
+        notes: ["Site is now responsive: can be viewed in mobiles"],
+    },
 ];
 
 export default versionRecords;
